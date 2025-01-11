@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            padding: 20px;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .title {
+            font-size: 24px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .date-range {
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .metric-title {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            color: #1e293b;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .metric-trend {
+            color: #10b981;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .chart {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            height: 300px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .chart-content {
+            height: calc(100% - 40px);
+            position: relative;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            gap: 16px;
+            padding-bottom: 24px;
+        }
+
+        .bar-group {
+            flex: 1;
+            display: flex;
+            gap: 4px;
+        }
+
+        .bar {
+            flex: 1;
+            background: #2563eb;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .bar.secondary {
+            background: #93c5fd;
+        }
+
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #2563eb 0% 65%,
+                #93c5fd 65% 85%,
+                #dbeafe 85% 100%
+            );
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1 class="title">Business Analytics</h1>
+            <div class="date-range">Last 30 Days</div>
+        </div>
+
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-title">Revenue</div>
+                <div class="metric-value">$24,895</div>
+                <div class="metric-trend">↑ 12.5%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Customers</div>
+                <div class="metric-value">1,245</div>
+                <div class="metric-trend">↑ 8.3%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Avg. Order</div>
+                <div class="metric-value">$195</div>
+                <div class="metric-trend">↑ 3.2%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Conversion</div>
+                <div class="metric-value">3.8%</div>
+                <div class="metric-trend">↑ 1.1%</div>
+            </div>
+        </div>
+
+        <div class="chart-grid">
+            <div class="chart">
+                <div class="chart-header">
+                    <div class="chart-title">Revenue Overview</div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #2563eb"></div>
+                            <span>This Year</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot" style="background: #93c5fd"></div>
+                            <span>Last Year</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-content">
+                    <div class="bar-chart">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 60%"></div>
+                            <div class="bar secondary" style="height: 45%"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 75%"></div>
+                            <div class="bar secondary" style="height: 60%"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 85%"></div>
+                            <div class="bar secondary" style="height: 70%"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 65%"></div>
+                            <div class="bar secondary" style="height: 50%"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 90%"></div>
+                            <div class="bar secondary" style="height: 75%"></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 80%"></div>
+                            <div class="bar secondary" style="height: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart">
+                <div class="chart-header">
+                    <div class="chart-title">Customer Segments</div>
+                </div>
+                <div class="chart-content">
+                    <div class="pie-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
